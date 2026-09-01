@@ -15,6 +15,7 @@ environment:
   contents:
     packages:
       - build-base
+      - build-base
       - glibc-2.44-dev
 
 pipeline:
