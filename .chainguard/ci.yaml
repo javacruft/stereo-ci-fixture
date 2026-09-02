@@ -1,0 +1,22 @@
+name: wolfictl-lint-pair
+jobs:
+  wolfictl:
+    environment:
+      packages: [wolfictl]
+    workingDirectory: src
+    inputs:
+      - path: src
+        git: { repo: https://github.com/javacruft/stereo-ci-fixture, ref: 28f0f7c7efe2b54bb4510a52789a37c88182a5b8 }
+    steps:
+      - name: wolfictl-lint
+        run: cd os && wolfictl lint
+  yam:
+    environment:
+      packages: [yam]
+    workingDirectory: src
+    inputs:
+      - path: src
+        git: { repo: https://github.com/javacruft/stereo-ci-fixture, ref: 28f0f7c7efe2b54bb4510a52789a37c88182a5b8 }
+    steps:
+      - name: yam-lint
+        run: yam --lint os
